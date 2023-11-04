@@ -1,12 +1,9 @@
-import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Input from "../input/Input"
 import PrimerButton from "../button/PrimerButton"
 
 const LoginForm = () => {
     const nav = useNavigate()
-
-    const [message, setMessage] = useState('')
 
     const handleLogin = () => {
         nav('/')
@@ -41,7 +38,7 @@ const LoginForm = () => {
             <div className="text-xs sm:text-xs text-black">Or</div> 
             <div className="flex-grow h-0.5 bg-black mx-2"></div> 
             </div>
-                <div className="w-full text-black text-xs sm:text-sm font-semibold px-2">Don't have membership? <Link to="/register" className='text-accent font-bold hover:text-palleteSubmitHover'>Registration</Link></div>
+                <div className="w-full text-black text-xs sm:text-sm font-semibold px-2">Don&apos;t have membership? <Link to="/register" className='text-accent font-bold hover:text-palleteSubmitHover'>Registration</Link></div>
             </div>
         </form>
     )
