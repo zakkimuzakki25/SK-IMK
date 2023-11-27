@@ -10,6 +10,7 @@ import Confirmation from "../../../components/popup/Confirmation"
 import Succes from "../../../components/popup/Succes"
 import MakeReservation from "../../../components/popup/MakeReservation"
 import SuccesReservation from "../../../components/popup/SuccesReservation"
+import OtherButtonSquare from "../../../components/button/square/OtherButtonSquare"
 
 const BookDetail = () => {
     const [returnDate, setReturnDate] = useState("")
@@ -142,6 +143,7 @@ const BookDetail = () => {
                                 <div className="flex flex-col gap-3 mt-2">
                                     <PrimerButtonSquare name={"Borrow"} handle={borrowHandle}/>
                                     <PrimerBlueButtonSquare name={"Reservation"} handle={resHandle}/>
+                                    <OtherButtonSquare name={"Add to Cart"} />
                                 </div>
                             </div>
                         </div>
