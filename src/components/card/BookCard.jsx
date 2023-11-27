@@ -21,7 +21,7 @@ const BookCard = ({pic, title, rate, tot_review}) => {
     const [nextRes, setNextRes] = useState(false)
 
     const borrowHandle = () => {
-        if (ftoken) {
+        if (ftoken != '') {
             nav('/book/detail')
         } else {
             setBorrowClicked(true)
@@ -29,7 +29,7 @@ const BookCard = ({pic, title, rate, tot_review}) => {
     }
 
     const resHandle = () => {
-        if (ftoken) {
+        if (ftoken != '') {
             nav('/book/detail')
         } else {
             setResClicked(true)
