@@ -2,7 +2,7 @@ import PrimerButtonRounded from "../button/rounded/PrimerButtonRounded"
 import OtherButtonRounded from "../button/rounded/OtherButtonRounded"
 import PropTypes from 'prop-types'
 import Rating from '@mui/material/Rating'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import Confirmation from "../popup/Confirmation"
 import Succes from "../popup/Succes"
@@ -10,6 +10,9 @@ import MakeReservation from "../popup/MakeReservation"
 import SuccesReservation from "../popup/SuccesReservation"
 
 const BookCard = ({pic, title, rate, tot_review}) => {
+    const ftoken = window.localStorage.getItem('ftoken')
+    const nav = useNavigate()
+
     const [selectedDate, setSelectedDate] = useState('')
     const [borrowClicked, setBorrowClicked] = useState(false)
     const [clickedYesBorrow, setClickedYesBorrow] = useState(false)
@@ -18,11 +21,19 @@ const BookCard = ({pic, title, rate, tot_review}) => {
     const [nextRes, setNextRes] = useState(false)
 
     const borrowHandle = () => {
-        setBorrowClicked(true)
+        if (ftoken) {
+            nav('/book/detail')
+        } else {
+            setBorrowClicked(true)
+        }
     }
 
     const resHandle = () => {
-        setResClicked(true)
+        if (ftoken) {
+            nav('/book/detail')
+        } else {
+            setResClicked(true)
+        }
     }
 
     const yesBorrowHandle = () => {
