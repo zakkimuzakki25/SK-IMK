@@ -1,17 +1,14 @@
 [
     {
       "name": "Profile",
-      "icon": "/src/assets/icon/sidebar/Profile.svg",
       "path": "/user/profile"
     },
     {
       "name": "Order",
-      "icon": "/src/assets/icon/sidebar/Order.svg",
       "path": "/user/order"
     },
     {
       "name": "Favourite",
-      "icon": "/src/assets/icon/sidebar/Favourite.svg",
       "path": "/user/favourite"
     }
 ]

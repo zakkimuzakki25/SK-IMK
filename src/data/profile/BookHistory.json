@@ -1,14 +1,14 @@
 [
     {
         "id": 1,
-        "pic": "/src/assets/images/books/Book4.jpg",
+        "pic": "https://www.kinokuniya.co.id/sites/default/files/styles/sc800x800/public/products/2021-07/9780060883287.jpg?itok=igjKJpvl",
         "title": "One Hundred Years of Solitude of Antartics",
         "rate": 4.5,
         "tot_review": 777
     },
     {
         "id": 2,
-        "pic": "/src/assets/images/books/Book5.jpg",
+        "pic": "https://m.media-amazon.com/images/I/411WFSFEMJL._AC_UF1000,1000_QL80_.jpg",
         "title": "Don Quixote",
         "rate": 4.2,
         "tot_review": 510

@@ -1,6 +1,10 @@
+/* eslint-disable no-unused-vars */
 import { Link, useLocation } from "react-router-dom";
 import ProfileIMG from "../../assets/images/Profile.jpg"
 import DataSidebar from "../../data/profile/SideBar.json"
+import Icon0 from '../../assets/icon/sidebar/Profile.svg'
+import Icon1 from '../../assets/icon/sidebar/Order.svg'
+import Icon2 from '../../assets/icon/sidebar/Favourite.svg'
 
 const SideBarProfile = () => {
     let loc = useLocation()
@@ -25,7 +29,7 @@ const SideBarProfile = () => {
                             loc.pathname.includes(list.path) ? "bg-white bg-opacity-20 cursor-default" : "hover:bg-primary2 hover:bg-opacity-30"
                         } flex flex-row text-white text-xl gap-2 py-3 pl-20 pr-32 w-80`}
                     >
-                        <img src={list.icon} className="h-9"/>
+                        <img src={index === 0 ? Icon0 : index === 1 ? Icon1 : Icon2} className="h-9"/>
                         <div className="self-center">{list.name}</div>
                     </Link>
                     );

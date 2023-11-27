@@ -6,11 +6,21 @@ import PrimerBlueButtonSquare from "../../../components/button/square/PrimerBlue
 import PrimerButtonSquare from "../../../components/button/square/PrimerButtonSquare"
 import favBorder from '../../../assets/icon/fav/fav-border.svg'
 import favFill from '../../../assets/icon/fav/fav-fill.svg'
+import Confirmation from "../../../components/popup/Confirmation"
+import Succes from "../../../components/popup/Succes"
+import MakeReservation from "../../../components/popup/MakeReservation"
+import SuccesReservation from "../../../components/popup/SuccesReservation"
 
 const BookDetail = () => {
     const [returnDate, setReturnDate] = useState("")
     const [returnTime, setReturnTime] = useState("")
     const [fav, setFav] = useState(false)
+    const [selectedDate, setSelectedDate] = useState('')
+    const [borrowClicked, setBorrowClicked] = useState(false)
+    const [clickedYesBorrow, setClickedYesBorrow] = useState(false)
+    const [resClicked, setResClicked] = useState(false)
+    const [clickedYesRes, setClickedYesRes] = useState(false)
+    const [nextRes, setNextRes] = useState(false)
 
     const handleFavClick = () => {
         setFav(!fav)
@@ -24,6 +34,37 @@ const BookDetail = () => {
         setReturnDate(formattedDate)
         setReturnTime(formattedTime)
     }, [])
+
+    const borrowHandle = () => {
+        setBorrowClicked(true)
+    }
+
+    const resHandle = () => {
+        setResClicked(true)
+    }
+
+    const yesBorrowHandle = () => {
+        setBorrowClicked(false)
+        setClickedYesBorrow(true)
+    }
+
+    const yesResHandle = () => {
+        setResClicked(false)
+        setClickedYesRes(true)
+    }
+
+    const nextHandleRes = () => {
+        setClickedYesRes(false)
+        setNextRes(true)
+    }
+
+    const noHandle = () => {
+        setBorrowClicked(false)
+        setResClicked(false)
+        setClickedYesBorrow(false)
+        setClickedYesRes(false)
+        setNextRes(false)
+    }
 
     return (
         <div className="flex flex-col h-screen w-screen bg-backgroundlinear overflow-hidden">
@@ -41,7 +82,7 @@ const BookDetail = () => {
                     {/* left */}
                     <div className="flex flex-col gap-3">
                         <div className="flex py-5 px-7 w-80 justify-center bg-backgroundsolid border-4">
-                            <img src="/src/assets/images/books/Book3.webp" className="h-full shadow-md shadow-black" />
+                            <img src="https://i0.wp.com/americanwritersmuseum.org/wp-content/uploads/2018/02/CK-3.jpg?resize=267%2C400&ssl=1" className="h-full shadow-md shadow-black" />
                         </div>
                         <div className="flex flex-col author gap-2">
                             <div className="font-semibold">Author:</div>
@@ -99,8 +140,8 @@ const BookDetail = () => {
                                     <div className="jam">{returnTime}</div>
                                 </div>
                                 <div className="flex flex-col gap-3 mt-2">
-                                    <PrimerButtonSquare name={"Borrow"}/>
-                                    <PrimerBlueButtonSquare name={"Reservation"}/>
+                                    <PrimerButtonSquare name={"Borrow"} handle={borrowHandle}/>
+                                    <PrimerBlueButtonSquare name={"Reservation"} handle={resHandle}/>
                                 </div>
                             </div>
                         </div>
@@ -109,6 +150,34 @@ const BookDetail = () => {
 
                 </div>
             </div>
+            {borrowClicked && (
+                <div className="fixed bg-white bg-opacity-50 w-screen h-screen z-50 top-0 right-0 left-0 bottom-0 justify-center flex items-center">
+                    <Confirmation noHandle={noHandle} yesHandle={yesBorrowHandle}/>
+                </div>
+            )}
+            {clickedYesBorrow && (
+                <div className="fixed bg-white bg-opacity-50 w-screen h-screen z-50 top-0 right-0 left-0 bottom-0 justify-center flex items-center">
+                    <Succes okHandle={noHandle}/>
+                </div>
+            )}
+
+            {/* reservation */}
+            {resClicked && (
+                <div className="fixed bg-white bg-opacity-50 w-screen h-screen z-50 top-0 right-0 left-0 bottom-0 justify-center flex items-center">
+                    <Confirmation noHandle={noHandle} yesHandle={yesResHandle}/>
+                </div>
+            )}
+            {clickedYesRes && (
+                <div className="fixed bg-white bg-opacity-50 w-screen h-screen z-50 top-0 right-0 left-0 bottom-0 justify-center flex items-center">
+                    <MakeReservation nextHandle={nextHandleRes} cancelHandle={noHandle} setDate={setSelectedDate}/>
+                </div>
+            )}
+            {nextRes && (
+                <div className="fixed bg-white bg-opacity-50 w-screen h-screen z-50 top-0 right-0 left-0 bottom-0 justify-center flex items-center">
+                    <SuccesReservation okHandle={noHandle} theDate={selectedDate}/>
+                </div>
+            )}
+
         </div>
     )
 }

@@ -12,8 +12,8 @@ import SuccesReservation from "../popup/SuccesReservation"
 const BookCard = ({pic, title, rate, tot_review}) => {
     const [selectedDate, setSelectedDate] = useState('')
     const [borrowClicked, setBorrowClicked] = useState(false)
-    const [resClicked, setResClicked] = useState(false)
     const [clickedYesBorrow, setClickedYesBorrow] = useState(false)
+    const [resClicked, setResClicked] = useState(false)
     const [clickedYesRes, setClickedYesRes] = useState(false)
     const [nextRes, setNextRes] = useState(false)
 

@@ -3,8 +3,12 @@ import BookDatas from '../../data/home/Book.json'
 import Navbar from "../../components/layout/Navbar"
 import BookCartCard from "../../components/card/BookCartCard"
 import PrimerButtonSquare from "../../components/button/square/PrimerButtonSquare"
+import Confirmation from "../../components/popup/Confirmation"
+import Succes from "../../components/popup/Succes"
 
 const Cart = () => {
+    const [borrowClicked, setBorrowClicked] = useState(false)
+    const [clickedYesBorrow, setClickedYesBorrow] = useState(false)
     const books = BookDatas.slice(0, 5)
 
     const [list, setList] = useState([])
@@ -15,6 +19,20 @@ const Cart = () => {
         } else {
             setList(list.filter((item) => item !== value))
         }
+    }
+
+    const yesBorrowHandle = () => {
+        setBorrowClicked(false)
+        setClickedYesBorrow(true)
+    }
+
+    const noHandle = () => {
+        setBorrowClicked(false)
+        setClickedYesBorrow(false)
+    }
+
+    const borrowHandle = () => {
+        setBorrowClicked(true)
     }
 
     return (
@@ -133,9 +151,19 @@ const Cart = () => {
                     </div>
                     <div className="border-t-2 py-2">Tanggal Pengembalian Buku dan detail informasi lainnya akan dikirimkan ke email akun anda. Jika rusak atau hilang, maka akan dikenakan denda sesuai dengan S&K yang berlaku</div>
                     <div className="datetime"></div>
-                    {list.length > 0 && (<PrimerButtonSquare name={"Borrow"}/>)}
+                    {list.length > 0 && (<PrimerButtonSquare name={"Borrow"} handle={borrowHandle}/>)}
                 </div>
             </div>
+            {borrowClicked && (
+                <div className="fixed bg-white bg-opacity-50 w-screen h-screen z-50 top-0 right-0 left-0 bottom-0 justify-center flex items-center">
+                    <Confirmation noHandle={noHandle} yesHandle={yesBorrowHandle}/>
+                </div>
+            )}
+            {clickedYesBorrow && (
+                <div className="fixed bg-white bg-opacity-50 w-screen h-screen z-50 top-0 right-0 left-0 bottom-0 justify-center flex items-center">
+                    <Succes okHandle={noHandle}/>
+                </div>
+            )}
         </div>
     )
 }
