@@ -1,0 +1,10 @@
+[
+    {
+      "name": "Library Book",
+      "path": "/user/favourite"
+    },
+    {
+      "name": "E-Book",
+      "path": "/user/favourite/e-book"
+    }
+]

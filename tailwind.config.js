@@ -11,13 +11,17 @@ export default {
         primary2: '#48BCD1',
         accent: '#15998E',
         backgroundsolid: '#C0DCEC',
-        teks: '#333333'
+        teks: '#333333',
+        redpallete: '#C51414'
       },
       backgroundImage: {
         backgroundlinear: 'linear-gradient(to left top, rgba(192, 220, 236, 1) , rgba(255, 255, 255, 0) 100%)',
         backgroundlinear2: 'linear-gradient(to top, #15998E , rgba(255, 255, 255, 0) 100%)',
         backgroundlinear3: 'linear-gradient(to top, #15998E, rgba(0, 0, 0, 0.2) 90%)',
         bgAuth: 'url("src/assets/images/bg-auth.jpg")',
+      },
+      fontFamily: {
+        inter: 'Inter'
       },
     },
   },

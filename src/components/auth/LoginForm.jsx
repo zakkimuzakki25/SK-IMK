@@ -1,17 +1,18 @@
 import { Link, useNavigate } from 'react-router-dom'
-import Input from "../input/Input"
-import PrimerButton from "../button/PrimerButton"
+import Input from "../input/InputRounded"
+import PrimerButton from "../button/rounded/PrimerButtonRounded"
 
 const LoginForm = () => {
     const nav = useNavigate()
 
     const handleLogin = () => {
-        nav('/')
+        window.localStorage.setItem("ftoken", "faketoken")
+        nav("/")
     }
 
     return (
         <form onSubmit={handleLogin}>
-        <div className="flex px-8 sm:px-11 py-12 flex-col items-center gap-3 rounded-3xl">
+        <div className="flex w-96 px-8 sm:px-11 py-12 flex-col items-center gap-3 rounded-3xl">
             <div className='flex items-end self-stretch text-2xl sm:text-4xl font-bold text-black pb-2'>Log In</div>
             <Input
                 textLabel={"Username/Email"}

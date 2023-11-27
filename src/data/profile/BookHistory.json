@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "pic": "/src/assets/images/books/Book4.jpg",
+        "title": "One Hundred Years of Solitude of Antartics",
+        "rate": 4.5,
+        "tot_review": 777
+    },
+    {
+        "id": 2,
+        "pic": "/src/assets/images/books/Book5.jpg",
+        "title": "Don Quixote",
+        "rate": 4.2,
+        "tot_review": 510
+    }
+]

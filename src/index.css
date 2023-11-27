@@ -1,12 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap')
-
-@layer base {
-    * {
-      @apply font-inter
-    }
-  }
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    @apply font-inter
+  }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eaeaea;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #45B08C;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #15998E; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
