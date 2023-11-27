@@ -22,17 +22,17 @@ const BookCard = ({pic, title, rate, tot_review}) => {
 
     const borrowHandle = () => {
         if (ftoken != '') {
-            nav('/book/detail')
-        } else {
             setBorrowClicked(true)
+        } else {
+            nav('/book/detail')
         }
     }
 
     const resHandle = () => {
         if (ftoken != '') {
-            nav('/book/detail')
-        } else {
             setResClicked(true)
+        } else {
+            nav('/book/detail')
         }
     }
 
